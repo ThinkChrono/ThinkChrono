@@ -1,0 +1,73 @@
+body {
+  width: 350px;
+  background-color: white !important;
+  padding: 10px;
+  text-align: center;
+  transition: background-color 0.75s ease;
+  font-size: 13px;
+
+  font-family: 'Helvetica Neue', 'Lucida Grande', sans-serif;
+}
+
+#title {
+  font-family: sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 2px;
+  margin-top: 10px;
+}
+
+#caption {
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  margin-bottom: 0px;
+}
+
+.onboarding {
+  font-family: sans-serif;
+  border-top: solid black 1px;
+  font-weight: 500;
+  padding-top: 2%;
+  font-size: medium;
+}
+
+#onoffbox {
+  appearance: none;
+}
+
+#onoffmain {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  width: 55px;
+  height: 25px;
+  border: 0px solid #cae1fd;
+  border-radius: 20px;
+  transition: 0.2s;
+  background: #cae1fd;
+}
+
+#onoffball {
+  position: absolute;
+  display: inline-block;
+  width: 21px;
+  height: 21px;
+  top: 2px;
+  left: 4px;
+  border: 0px solid #adcafc;
+  border-radius: 20px;
+  transition: 0.2s;
+  background: #adcafc;
+}
+
+#onoffbox:checked+#onoffmain {
+  border: 0px solid #a4a3f7;
+  background: #a4a3f7;
+}
+
+#onoffbox:checked+#onoffmain #onoffball {
+  left: 30px;
+  border: 0px solid #7c7bf2;
+  background: #7c7bf2;
+}
