@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/home.css" />
+  <script src="/library/jquery-3.7.1.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css">
+  <script src="/library/semantic.min.js"></script>
+  <title>ThinkChrono Home</title>
+</head>
+
+<body>
+  <div class="ui grid container">
+    <div class="sixteen wide column center aligned">
+      <br />
+      <p class="title">
+        Think<span>Chrono</span></p>
+      <p class="caption">Maximize your coding potential with time</p>
+      <br /><br /><br /><br /><br /><br /><br /><br />
+      <p hidden id="error"></p>
+      <p hidden id="success"></p>
+      <p hidden id="unlink">Linked the wrong repo? <a>Unlink</a>.</p>
+    </div>
+
+    <!-- Create Hook -->
+    <div style="display: none" id="hook_mode" class="ui grid container">
+      <div class="six wide column">
+        <p class="caption ui large header center aligned">To get started with ThinkChrono</p>
+      </div>
+
+      <div class="ten wide column">
+        <div class="ui form">
+          <div class="fields" style="display: flex; align-items: center; gap: 10px;">
+            <div class="ten wide field" style="padding-bottom: 0 !important;">
+              <input autocomplete="off" id="key" placeholder="Gemini API Key" type="text" />
+            </div>
+            <div class="six wide feild">
+              <button id="hook_button" disabled class="large ui button aligned"
+                style="background-color: #a4a3f7; color:white">Get Started</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sixteen wide center aligned column">
+        <br /><br /><br /><br /><br />
+        <div class="ui inverted small header">
+          <a style="color: rgb(226, 243, 243) !important" target="_blank"
+            href="https://github.com/hu6r1s/ThinkChrono">Link to
+            <span id="copyright">ThinkChrono</span> on GitHub</a>
+        </div>
+      </div>
+    </div>
+    <script src="home.js"></script>
+</body>
+
+</html>

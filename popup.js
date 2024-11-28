@@ -1,0 +1,1 @@
+$('#welcome_URL').attr('href', `chrome-extension://${chrome.runtime.id}/home.html`);
