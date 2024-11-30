@@ -3,7 +3,10 @@
   "name": "ThinkChrono",
   "version": "1.0",
   "description": "A Chrome extension that helps you enhance coding practice with a smart timer and step-by-step problem-solving guidance.",
-  "permissions": [],
+  "permissions": [
+    "storage",
+    "unlimitedStorage"
+  ],
   "action": {
     "default_popup": "popup.html",
     "default_icon": "logo.png"
