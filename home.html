@@ -19,7 +19,7 @@
       <p class="title">
         Think<span>Chrono</span></p>
       <p class="caption">Maximize your coding potential with time</p>
-      <br /><br /><br /><br /><br /><br /><br /><br />
+      <br /><br /><br /><br /><br /><br /><br />
       <p hidden id="error"></p>
       <p hidden id="success"></p>
       <p hidden id="unlink">Linked the wrong repo? <a>Unlink</a>.</p>
@@ -27,6 +27,12 @@
 
     <!-- Create Hook -->
     <div style="" id="hook_mode" class="ui grid container">
+      <div class="sixteen wide column">
+        <p class="caption ui medium header center aligned">To get your Gemini API Key,
+          <a id="link" target="_blank" href="https://aistudio.google.com/apikey" style="padding-left: 5px;">go to</a>
+        </p>
+      </div>
+      <br /><br /><br /><br />
       <div class="six wide column">
         <p class="caption ui large header center aligned">To get started with ThinkChrono</p>
       </div>
@@ -47,14 +53,29 @@
 
       <div class="sixteen wide center aligned column">
         <br /><br /><br /><br /><br />
+        <p class="caption ui small header center aligned">
+          ThinkChrono uses Gemini 1.5 Flash, and you can use it for free if you use it within 10 problems per day.
+          <br />
+          Please see below for exact pricing
+        </p>
         <div class="ui inverted small header">
           <a style="color: rgb(226, 243, 243) !important" target="_blank"
-            href="https://github.com/hu6r1s/ThinkChrono">Link to
-            <span id="copyright">ThinkChrono</span> on GitHub</a>
+            href="https://ai.google.dev/pricing?hl=ko#1_5flash">Link to
+            <span id="copyright">Pricing Gemini</span></a>
         </div>
       </div>
     </div>
-    <script src="home.js"></script>
+
+    <div class="sixteen wide center aligned column">
+      <br /><br /><br />
+      <div class="ui inverted small header">
+        <a style="color: rgb(226, 243, 243) !important" target="_blank"
+          href="https://github.com/hu6r1s/ThinkChrono">Link to
+          <span id="copyright">ThinkChrono</span> on GitHub</a>
+      </div>
+    </div>
+  </div>
+  <script src="home.js"></script>
 </body>
 
 </html>

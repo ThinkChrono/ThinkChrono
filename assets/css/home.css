@@ -62,6 +62,7 @@ a {
   cursor: pointer;
 }
 
+#link,
 #copyright {
   background: linear-gradient(.25turn, #cae1fd, 45%, #a4a3f7);
   -webkit-background-clip: text;
