@@ -10,5 +10,24 @@
   "action": {
     "default_popup": "popup.html",
     "default_icon": "logo.png"
+  },
+  "host_permissions": [
+    "https://www.acmicpc.net/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.acmicpc.net/problem/*"
+      ],
+      "js": [
+        "scripts/baekjoon/timer.js"
+      ],
+      "css": [
+        "assets/css/baekjoon.css"
+      ]
+    }
+  ],
+  "background": {
+    "service_worker": "scripts/background.js"
   }
 }

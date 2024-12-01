@@ -1,7 +1,14 @@
 $('#welcome_URL').attr('href', `chrome-extension://${chrome.runtime.id}/home.html`);
 
-$("#onoffbox").on("click", () => {
-  chrome.storage.local.set({ "chronoEnable": $("#onoffbox").is(":checked") });
+$('#onoffbox').on("click", () => {
+  const isChecked = $("#onoffbox").is(":checked");
+  chrome.storage.local.set({ "chronoEnable": isChecked }, () => {
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+      if (tabs[0]?.id) {
+        chrome.tabs.sendMessage(tabs[0].id, { action: "updateTimerDisplay" });
+      }
+    });
+  });
 });
 
 chrome.storage.local.get("chronoEnable", (result) => {
@@ -10,6 +17,5 @@ chrome.storage.local.get("chronoEnable", (result) => {
     chrome.storage.local.set({ "chronoEnable": $("#onoffbox").is(":checked") });
   } else {
     $("#onoffbox").prop("checked", result.chronoEnable);
-    chrome.storage.local.set({ "chronoEnable": $("#onoffbox").is(":checked") });
   }
 });
