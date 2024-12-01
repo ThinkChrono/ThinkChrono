@@ -4,8 +4,8 @@ const createTimer = () => {
     const timerWrapper = document.createElement("div");
     timerWrapper.id = "timer-wrapper";
     timerWrapper.style.position = "fixed";
-    timerWrapper.style.bottom = "20px";
-    timerWrapper.style.right = "20px";
+    timerWrapper.style.top = "20px"; // 화면 상단에서 20px
+    timerWrapper.style.right = "20px"; // 화면 오른쪽에서 20px
     timerWrapper.style.backgroundColor = "#fff";
     timerWrapper.style.border = "1px solid #ccc";
     timerWrapper.style.padding = "10px";
