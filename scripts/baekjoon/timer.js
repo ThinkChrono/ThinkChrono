@@ -18,11 +18,24 @@ const createTimer = () => {
     timerDisplay.style.fontWeight = "bold";
     timerDisplay.textContent = "00:00:00";
 
-    timerWrapper.appendChild(timerDisplay);
-    document.body.appendChild(timerWrapper);
+    // 버튼 생성
+    const buttonsWrapper = document.createElement("div");
+    buttonsWrapper.style.marginTop = "10px";
 
-    // 타이머 시작
-    startTimer();
+    const createButton = (label, minutes) => {
+      const button = document.createElement("button");
+      button.textContent = label;
+      button.style.marginRight = "5px";
+      button.addEventListener("click", () => startTimer(minutes * 60));
+      return button;
+    };
+
+    buttonsWrapper.appendChild(createButton("30분", 30));
+    buttonsWrapper.appendChild(createButton("1시간", 60));
+
+    timerWrapper.appendChild(timerDisplay);
+    timerWrapper.appendChild(buttonsWrapper);
+    document.body.appendChild(timerWrapper);
   }
 };
 
@@ -37,18 +50,26 @@ const removeTimer = () => {
 
 // 타이머 시작 로직
 let timerInterval = null;
-const startTimer = () => {
-  let seconds = 0;
+let remainingSeconds = 0;
+
+const startTimer = (seconds) => {
+  stopTimer(); // 기존 타이머 정지
+  remainingSeconds = seconds;
 
   const updateTimer = () => {
-    const hours = String(Math.floor(seconds / 3600)).padStart(2, "0");
-    const minutes = String(Math.floor((seconds % 3600) / 60)).padStart(2, "0");
-    const secs = String(seconds % 60).padStart(2, "0");
-    const timerDisplay = document.getElementById("timer-display");
-    if (timerDisplay) {
-      timerDisplay.textContent = `${hours}:${minutes}:${secs}`;
+    if (remainingSeconds > 0) {
+      const hours = String(Math.floor(remainingSeconds / 3600)).padStart(2, "0");
+      const minutes = String(Math.floor((remainingSeconds % 3600) / 60)).padStart(2, "0");
+      const secs = String(remainingSeconds % 60).padStart(2, "0");
+      const timerDisplay = document.getElementById("timer-display");
+      if (timerDisplay) {
+        timerDisplay.textContent = `${hours}:${minutes}:${secs}`;
+      }
+      remainingSeconds--;
+    } else {
+      stopTimer(); // 시간이 다 되면 타이머 중지
+      alert("타이머가 종료되었습니다!");
     }
-    seconds++;
   };
 
   if (!timerInterval) {
