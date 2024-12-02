@@ -1,3 +1,75 @@
 #timer-wrapper {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px !important;
+  position: fixed;
+  top: 100px;
+  right: 150px;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+  width: 200px;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#timer-header {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+#timer-close-button {
+  font-size: 20px;
+  font-weight: bold;
+  color: #888;
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+#timer-close-button:hover {
+  color: #333;
+}
+
+#timer-display {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  display: block;
+  margin: 10px 0;
+}
+
+#buttons-wrapper {
+  display: flex;
+  justify-content: center;
+  /* 버튼들을 중앙 정렬 */
+  gap: 10px;
+}
+
+.timer-button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.timer-button:hover {
+  background-color: #0056b3;
 }

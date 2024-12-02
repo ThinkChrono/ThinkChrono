@@ -20,7 +20,8 @@
         "https://www.acmicpc.net/problem/*"
       ],
       "js": [
-        "scripts/baekjoon/timer.js"
+        "scripts/baekjoon/timer.js",
+        "scripts/timerUI.js"
       ],
       "css": [
         "assets/css/baekjoon.css"

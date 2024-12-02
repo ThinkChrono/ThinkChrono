@@ -1,40 +1,7 @@
 // 타이머 DOM 생성 및 초기화
-const createTimer = () => {
+const createTimer = (startTimer, stopTimer, removeTimer) => {
   if (!document.getElementById("timer-wrapper")) {
-    const timerWrapper = document.createElement("div");
-    timerWrapper.id = "timer-wrapper";
-    timerWrapper.style.position = "fixed";
-    timerWrapper.style.top = "20px"; // 화면 상단에서 20px
-    timerWrapper.style.right = "20px"; // 화면 오른쪽에서 20px
-    timerWrapper.style.backgroundColor = "#fff";
-    timerWrapper.style.border = "1px solid #ccc";
-    timerWrapper.style.padding = "10px";
-    timerWrapper.style.borderRadius = "5px";
-    timerWrapper.style.zIndex = "9999";
-
-    const timerDisplay = document.createElement("span");
-    timerDisplay.id = "timer-display";
-    timerDisplay.style.fontSize = "16px";
-    timerDisplay.style.fontWeight = "bold";
-    timerDisplay.textContent = "00:00:00";
-
-    // 버튼 생성
-    const buttonsWrapper = document.createElement("div");
-    buttonsWrapper.style.marginTop = "10px";
-
-    const createButton = (label, minutes) => {
-      const button = document.createElement("button");
-      button.textContent = label;
-      button.style.marginRight = "5px";
-      button.addEventListener("click", () => startTimer(minutes * 60));
-      return button;
-    };
-
-    buttonsWrapper.appendChild(createButton("30분", 30));
-    buttonsWrapper.appendChild(createButton("1시간", 60));
-
-    timerWrapper.appendChild(timerDisplay);
-    timerWrapper.appendChild(buttonsWrapper);
+    const timerWrapper = createTimerUI(startTimer, stopTimer, removeTimer);
     document.body.appendChild(timerWrapper);
   }
 };
