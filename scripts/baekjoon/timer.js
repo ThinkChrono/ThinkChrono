@@ -44,7 +44,7 @@ const createTimer = () => {
       return button;
     };
 
-    buttonsWrapper.appendChild(createButton("30minute", 30));
+    buttonsWrapper.appendChild(createButton("half", 30));
     buttonsWrapper.appendChild(createButton("1hour", 60));
 
     // 요소 추가
@@ -53,7 +53,40 @@ const createTimer = () => {
     timerWrapper.appendChild(timerDisplay);
 
     document.body.appendChild(timerWrapper);
+
+    // 드래그 가능하도록 이벤트 리스너 추가
+    makeDraggable(timerWrapper, timerHeader);
   }
+};
+
+// 드래그 가능 로직 추가 함수
+const makeDraggable = (element, handle) => {
+  let isDragging = false;
+  let offsetX = 0;
+  let offsetY = 0;
+
+  handle.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    offsetX = e.clientX - element.getBoundingClientRect().left;
+    offsetY = e.clientY - element.getBoundingClientRect().top;
+    document.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mouseup", onMouseUp);
+  });
+
+  const onMouseMove = (e) => {
+    if (isDragging) {
+      const newLeft = e.clientX - offsetX;
+      const newTop = e.clientY - offsetY;
+      element.style.left = `${newLeft}px`;
+      element.style.top = `${newTop}px`;
+    }
+  };
+
+  const onMouseUp = () => {
+    isDragging = false;
+    document.removeEventListener("mousemove", onMouseMove);
+    document.removeEventListener("mouseup", onMouseUp);
+  };
 };
 
 // 타이머 DOM 제거
