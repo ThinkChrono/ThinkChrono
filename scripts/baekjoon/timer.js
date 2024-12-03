@@ -22,11 +22,9 @@ const createTimer = () => {
     timerHeader.appendChild(headerText);
     timerHeader.appendChild(closeButton);
 
-    // 타이머 표시 영역 (초기에는 숨김)
-    const timerDisplay = document.createElement("span");
-    timerDisplay.id = "timer-display";
-    timerDisplay.textContent = "00:00:00";
-    timerDisplay.style.display = "none"; // 초기에는 숨김
+    // 버튼 및 타이머 표시 영역을 감싸는 컨테이너
+    const contentWrapper = document.createElement("div");
+    contentWrapper.id = "content-wrapper";
 
     // 버튼 생성
     const buttonsWrapper = document.createElement("div");
@@ -44,13 +42,19 @@ const createTimer = () => {
       return button;
     };
 
+    const timerDisplay = document.createElement("span");
+    timerDisplay.id = "timer-display";
+    timerDisplay.textContent = "00:00:00";
+    timerDisplay.style.display = "none";
+
     buttonsWrapper.appendChild(createButton("half", 30));
     buttonsWrapper.appendChild(createButton("1hour", 60));
 
-    // 요소 추가
+    contentWrapper.appendChild(buttonsWrapper);
+    contentWrapper.appendChild(timerDisplay);
+
     timerWrapper.appendChild(timerHeader);
-    timerWrapper.appendChild(buttonsWrapper);
-    timerWrapper.appendChild(timerDisplay);
+    timerWrapper.appendChild(contentWrapper);
 
     document.body.appendChild(timerWrapper);
 
