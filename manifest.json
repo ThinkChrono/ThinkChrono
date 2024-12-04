@@ -20,9 +20,11 @@
         "https://www.acmicpc.net/problem/*"
       ],
       "js": [
+        "scripts/pauseModal.js",
         "scripts/baekjoon/timer.js"
       ],
       "css": [
+        "assets/css/pauseModal.css",
         "assets/css/timer.css"
       ]
     }

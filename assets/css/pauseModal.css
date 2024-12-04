@@ -1,0 +1,70 @@
+#timer-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 555;
+  overflow: auto;
+}
+
+#modal-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: auto;
+  width: 320px;
+  z-index: 1000;
+  background-color: white;
+}
+
+#modal-text {
+  max-width: 100%;
+  padding: 1.2em 1.2em 0;
+  color: #595959;
+  font-size: 1.6em;
+  font-weight: 600;
+  text-align: center;
+  text-transform: none;
+  word-wrap: break-word;
+  position: relative;
+  max-width: 100%;
+}
+
+#modal-button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.modal-button {
+  margin-bottom: 10px;
+  padding: 4px 8px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+.reset-button {
+  background-color: #ff4d4d;
+  color: white;
+}
+
+.reset-button:hover {
+  background-color: #ff6666;
+}
+
+.cancel-button {
+  background-color: #4d4d4d;
+  color: white;
+}
+
+.cancel-button:hover {
+  background-color: #666666;
+}

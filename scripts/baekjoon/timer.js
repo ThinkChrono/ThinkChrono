@@ -37,21 +37,43 @@ const createTimer = () => {
       button.addEventListener("click", () => {
         startTimer(minutes * 60);
         buttonsWrapper.style.display = "none"; // 버튼 숨김
-        timerDisplay.style.display = "block"; // 타이머 표시
+        timerDisplayContainer.style.display = "block"; // 타이머 표시
       });
       return button;
     };
 
-    const timerDisplay = document.createElement("span");
+    const createStopButton = () => {
+      const stopButton = document.createElement("button");
+      stopButton.textContent = "중지";
+      stopButton.id = "stop-button";
+      stopButton.addEventListener("click", () => {
+        stopTimer();
+        createModal();
+      });
+      return stopButton;
+    };
+
+    const displayWrapper = document.createElement("div");
+    displayWrapper.id = "display-wrapper";
+
+    const timerDisplayContainer = document.createElement("div");
+    timerDisplayContainer.id = "timer-display-container";
+    timerDisplayContainer.style.display = "none";
+
+    const timerDisplay = document.createElement("div");
     timerDisplay.id = "timer-display";
     timerDisplay.textContent = "00:00:00";
-    timerDisplay.style.display = "none";
 
-    buttonsWrapper.appendChild(createButton("half", 30));
-    buttonsWrapper.appendChild(createButton("1hour", 60));
+    buttonsWrapper.appendChild(createButton("30분", 30));
+    buttonsWrapper.appendChild(createButton("1시간", 60));
 
     contentWrapper.appendChild(buttonsWrapper);
-    contentWrapper.appendChild(timerDisplay);
+
+    timerDisplayContainer.appendChild(timerDisplay);
+    timerDisplayContainer.appendChild(createStopButton());
+
+    displayWrapper.appendChild(timerDisplayContainer);
+    contentWrapper.appendChild(displayWrapper);
 
     timerWrapper.appendChild(timerHeader);
     timerWrapper.appendChild(contentWrapper);
