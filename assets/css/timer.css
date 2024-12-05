@@ -63,24 +63,71 @@
   padding: 5px;
   gap: 10px;
   margin: 0 auto;
-  padding-left: 58.5px;
+  padding-left: 32.5px;
 }
 
 .timer-button {
-  width: 75px;
-  padding: 8px 15px;
-  border: none;
+  display: inline-flex;
+  background: linear-gradient(to right, #a4d3fc, #8a8bf7);
+  height: 40px;
+  width: 100px;
+  align-items: center;
+  justify-content: center;
   border-radius: 5px !important;
-  background-color: #007bff;
-  color: #fff;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  border: 2px solid #a4a3f7;
+  transition: all 0.3s ease;
   font-size: 14px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  color: white;
+  box-shadow: none;
+  position: relative;
+  padding: 0 5px 0 10px;
+}
+
+.timer-button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.timer-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 13px;
+  width: 10px;
+  height: 10px;
+  background: #a4a3f7;
+  border-radius: 50%;
+  opacity: 0;
+  transform: translateY(-50%) scale(1.5);
+  transition: all 0.3s ease;
 }
 
 .timer-button:hover {
-  background-color: #0056b3;
+  border-color: #cae1fd;
+  background: linear-gradient(to right, #8a8bf7, #a4d3fc);
+  color: white;
+}
+
+.timer-button:hover::before {
+  background: white;
+}
+
+.timer-button:hover::after {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+
+.timer-button:active {
+  transform: scale(0.95);
 }
 
 #display-wrapper {
@@ -116,10 +163,16 @@
   width: 50px;
   height: 40px;
   color: white;
-  background-color: #007bff;
-  border: 2px solid #007bff;
+  background: linear-gradient(to right, #a4d3fc, #8a8bf7);
+  border: 2px solid #a4a3f7;
   border-radius: 3px;
   font-weight: bold;
   cursor: pointer;
   border-radius: 5px !important;
+}
+
+#stop-button:hover {
+  border-color: #cae1fd;
+  background: linear-gradient(to right, #8a8bf7, #a4d3fc);
+  color: white;
 }
