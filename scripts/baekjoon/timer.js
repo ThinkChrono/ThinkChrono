@@ -35,7 +35,7 @@ const createTimer = () => {
       button.textContent = label;
       button.className = "timer-button"; // 버튼 스타일 적용
       button.addEventListener("click", () => {
-        startTimer(minutes * 60);
+        startTimer(minutes);
         chrome.storage.local.set({ "originalSeconds": minutes * 60 });
         buttonsWrapper.style.display = "none"; // 버튼 숨김
         timerDisplayContainer.style.display = "block"; // 타이머 표시
@@ -49,7 +49,7 @@ const createTimer = () => {
       stopButton.id = "stop-button";
       stopButton.addEventListener("click", () => {
         stopTimer();
-        createModal();
+        createPauseModal();
       });
       return stopButton;
     };
@@ -144,8 +144,8 @@ const startTimer = (seconds) => {
       }
       remainingSeconds--;
     } else {
-      stopTimer(); // 시간이 다 되면 타이머 중지
-      alert("타이머가 종료되었습니다!");
+      stopTimer();
+      createEndModal();
     }
   };
 

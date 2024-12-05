@@ -1,5 +1,5 @@
 // 모달 생성 및 추가
-const createModal = () => {
+const createPauseModal = () => {
   // 모달이 이미 있으면 생성하지 않음
   if (document.getElementById("timer-modal")) return;
 
@@ -22,7 +22,7 @@ const createModal = () => {
   resetButton.className = "modal-button reset-button";
   resetButton.addEventListener("click", () => {
     resetTimer();
-    removeModal();
+    removePauseModal();
   });
 
   // 취소 버튼
@@ -30,8 +30,8 @@ const createModal = () => {
   cancelButton.textContent = "취소";
   cancelButton.className = "modal-button cancel-button";
   cancelButton.addEventListener("click", () => {
-    removeModal();
     resumeTimer();
+    removePauseModal();
   });
 
   modalButtonWrapper.appendChild(resetButton);
@@ -45,7 +45,7 @@ const createModal = () => {
 
   modal.addEventListener("click", (event) => {
     if (event.target === modal) {
-      removeModal();
+      removePauseModal();
     }
   });
 };
@@ -58,7 +58,7 @@ const resetTimer = () => {
   });
 };
 
-const removeModal = () => {
+const removePauseModal = () => {
   const modal = document.getElementById("timer-modal");
   if (modal) {
     modal.remove();

@@ -21,10 +21,11 @@
       ],
       "js": [
         "scripts/pauseModal.js",
+        "scripts/endModal.js",
         "scripts/baekjoon/timer.js"
       ],
       "css": [
-        "assets/css/pauseModal.css",
+        "assets/css/modal.css",
         "assets/css/timer.css"
       ]
     }

@@ -1,4 +1,5 @@
-#timer-modal {
+#timer-modal,
+#end-modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -9,7 +10,8 @@
   overflow: auto;
 }
 
-#modal-content {
+#modal-content,
+#end-content {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -20,7 +22,8 @@
   background-color: white;
 }
 
-#modal-text {
+#modal-text,
+#end-text {
   max-width: 100%;
   padding: 10px 1.2em 0;
   color: #595959;
@@ -33,7 +36,8 @@
   max-width: 100%;
 }
 
-#modal-button-wrapper {
+#modal-button-wrapper,
+#end-button-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,7 +64,8 @@
   background-color: #ff6666;
 }
 
-.cancel-button {
+.cancel-button,
+.end-button {
   background-color: #4d4d4d;
   color: white;
 }
