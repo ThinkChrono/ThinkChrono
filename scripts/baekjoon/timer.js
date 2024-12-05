@@ -4,41 +4,35 @@ const createTimer = () => {
     const timerWrapper = document.createElement("div");
     timerWrapper.id = "timer-wrapper";
 
-    // 헤더 생성
     const timerHeader = document.createElement("div");
     timerHeader.id = "timer-header";
 
-    // 헤더 텍스트
     const headerText = document.createElement("span");
     headerText.textContent = "ThinkChrono";
 
-    // 닫기 버튼
     const closeButton = document.createElement("button");
     closeButton.id = "timer-close-button";
-    closeButton.textContent = "×"; // 닫기 버튼 표시
-    closeButton.addEventListener("click", removeTimer); // 클릭 시 타이머 제거
+    closeButton.textContent = "×";
+    closeButton.addEventListener("click", removeTimer);
 
-    // 헤더 구성
     timerHeader.appendChild(headerText);
     timerHeader.appendChild(closeButton);
 
-    // 버튼 및 타이머 표시 영역을 감싸는 컨테이너
     const contentWrapper = document.createElement("div");
     contentWrapper.id = "content-wrapper";
 
-    // 버튼 생성
     const buttonsWrapper = document.createElement("div");
     buttonsWrapper.id = "buttons-wrapper";
 
     const createButton = (label, minutes) => {
       const button = document.createElement("button");
       button.textContent = label;
-      button.className = "timer-button"; // 버튼 스타일 적용
+      button.className = "timer-button";
       button.addEventListener("click", () => {
-        startTimer(minutes);
+        startTimer(minutes * 60);
         chrome.storage.local.set({ "originalSeconds": minutes * 60 });
-        buttonsWrapper.style.display = "none"; // 버튼 숨김
-        timerDisplayContainer.style.display = "block"; // 타이머 표시
+        buttonsWrapper.style.display = "none";
+        timerDisplayContainer.style.display = "block";
       });
       return button;
     };
@@ -81,12 +75,10 @@ const createTimer = () => {
 
     document.body.appendChild(timerWrapper);
 
-    // 드래그 가능하도록 이벤트 리스너 추가
     makeDraggable(timerWrapper, timerHeader);
   }
 };
 
-// 드래그 가능 로직 추가 함수
 const makeDraggable = (element, handle) => {
   let isDragging = false;
   let offsetX = 0;
@@ -116,21 +108,19 @@ const makeDraggable = (element, handle) => {
   };
 };
 
-// 타이머 DOM 제거
 const removeTimer = () => {
-  stopTimer(); // 타이머 중지
+  stopTimer();
   const timerWrapper = document.getElementById("timer-wrapper");
   if (timerWrapper) {
-    timerWrapper.remove(); // DOM 제거
+    timerWrapper.remove();
   }
 };
 
-// 타이머 시작 로직
 let timerInterval = null;
 let remainingSeconds = 0;
 
 const startTimer = (seconds) => {
-  stopTimer(); // 기존 타이머 정지
+  stopTimer();
   remainingSeconds = seconds;
 
   const updateTimer = () => {

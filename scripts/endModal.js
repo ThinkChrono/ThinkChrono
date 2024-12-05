@@ -32,6 +32,8 @@ const createEndModal = () => {
   modal.appendChild(endContent);
 
   document.body.appendChild(modal);
+
+  playSound();
 };
 
 const removeEndModal = () => {
@@ -40,3 +42,13 @@ const removeEndModal = () => {
     modal.remove();
   }
 };
+
+function playSound() {
+  try {
+    const audio = new Audio(chrome.runtime.getURL("assets/sound/alarm.mp3"));
+    audio.volume = 0.5;
+    audio.play().catch((error) => console.error("오디오 재생 실패:", error));
+  } catch (error) {
+    console.error("playSound function error: ", error);
+  }
+}
