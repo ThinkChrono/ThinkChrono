@@ -36,6 +36,7 @@ const createTimer = () => {
       button.className = "timer-button"; // 버튼 스타일 적용
       button.addEventListener("click", () => {
         startTimer(minutes * 60);
+        chrome.storage.local.set({ "originalSeconds": minutes * 60 });
         buttonsWrapper.style.display = "none"; // 버튼 숨김
         timerDisplayContainer.style.display = "block"; // 타이머 표시
       });
@@ -153,7 +154,6 @@ const startTimer = (seconds) => {
   }
 };
 
-// 타이머 중지
 const stopTimer = () => {
   if (timerInterval) {
     clearInterval(timerInterval);
@@ -161,23 +161,26 @@ const stopTimer = () => {
   }
 };
 
-// chronoEnable 상태에 따라 타이머 표시/숨기기
+const resumeTimer = () => {
+  if (!timerInterval && remainingSeconds > 0) {
+    startTimer(remainingSeconds);
+  }
+};
+
 const updateTimerDisplay = () => {
   chrome.storage.local.get("chronoEnable", (result) => {
     const isEnabled = result.chronoEnable;
 
     if (isEnabled) {
-      createTimer(); // 타이머 활성화
+      createTimer();
     } else {
-      removeTimer(); // 타이머 제거
+      removeTimer();
     }
   });
 };
 
-// 초기 상태 확인 및 타이머 표시/숨기기
 updateTimerDisplay();
 
-// popup.js에서 메시지를 받아 타이머 상태를 업데이트
 chrome.runtime.onMessage.addListener((message) => {
   if (message.action === "updateTimerDisplay") {
     updateTimerDisplay();

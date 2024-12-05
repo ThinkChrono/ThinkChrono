@@ -21,7 +21,7 @@ const createModal = () => {
   resetButton.textContent = "초기화";
   resetButton.className = "modal-button reset-button";
   resetButton.addEventListener("click", () => {
-    stopTimer();
+    resetTimer();
     removeModal();
   });
 
@@ -29,7 +29,10 @@ const createModal = () => {
   const cancelButton = document.createElement("button");
   cancelButton.textContent = "취소";
   cancelButton.className = "modal-button cancel-button";
-  cancelButton.addEventListener("click", removeModal);
+  cancelButton.addEventListener("click", () => {
+    removeModal();
+    resumeTimer();
+  });
 
   modalButtonWrapper.appendChild(resetButton);
   modalButtonWrapper.appendChild(cancelButton);
@@ -39,9 +42,22 @@ const createModal = () => {
   modal.appendChild(modalContent);
 
   document.body.appendChild(modal);
+
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      removeModal();
+    }
+  });
 };
 
-// 모달 제거
+const resetTimer = () => {
+  chrome.storage.local.get("originalSeconds", (result) => {
+    if (result.originalSeconds > 0) {
+      startTimer(result.originalSeconds);
+    }
+  });
+};
+
 const removeModal = () => {
   const modal = document.getElementById("timer-modal");
   if (modal) {
