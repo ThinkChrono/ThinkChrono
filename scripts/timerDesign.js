@@ -1,5 +1,5 @@
 const TimerDesign = {
-  createTimer(startTimer, stopTimer, removeTimer, createPauseModal) {
+  createTimer() {
     if (!document.getElementById("timer-wrapper")) {
       const timerWrapper = document.createElement("div");
       timerWrapper.id = "timer-wrapper";
@@ -32,7 +32,7 @@ const TimerDesign = {
         button.textContent = label;
         button.className = "timer-button";
         button.addEventListener("click", () => {
-          startTimer(minutes * 60);
+          startTimer(minutes);
           chrome.storage.local.set({ "originalSeconds": minutes * 60 });
           buttonsWrapper.style.display = "none";
           timerDisplayContainer.style.display = "block";
@@ -78,7 +78,7 @@ const TimerDesign = {
 
       document.body.appendChild(timerWrapper);
 
-      makeDraggable(timerWrapper, timerHeader);
+      this.makeDraggable(timerWrapper, timerHeader);
     }
   },
 

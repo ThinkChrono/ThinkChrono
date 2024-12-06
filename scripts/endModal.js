@@ -20,7 +20,7 @@ const createEndModal = () => {
   endButton.addEventListener("click", () => {
     removeTimer();
     if (!document.getElementById("timer-wrapper")) {
-      createTimer();
+      TimerDesign.createTimer();
     }
     removeEndModal();
   });
