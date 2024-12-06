@@ -6,7 +6,7 @@ const startTimer = (seconds) => {
   remainingSeconds = seconds;
 
   const updateTimer = () => {
-    if (remainingSeconds > 0) {
+    if (remainingSeconds >= 0) {
       const hours = String(Math.floor(remainingSeconds / 3600)).padStart(2, "0");
       const minutes = String(Math.floor((remainingSeconds % 3600) / 60)).padStart(2, "0");
       const secs = String(remainingSeconds % 60).padStart(2, "0");
@@ -20,6 +20,8 @@ const startTimer = (seconds) => {
       createEndModal();
     }
   };
+
+  updateTimer();
 
   if (!timerInterval) {
     timerInterval = setInterval(updateTimer, 1000);
@@ -52,7 +54,7 @@ const updateTimerDisplay = () => {
     const isEnabled = result.chronoEnable;
 
     if (isEnabled) {
-      TimerDesign.createTimer(startTimer, stopTimer, removeTimer, createPauseModal);
+      TimerDesign.createTimer();
     } else {
       removeTimer();
     }
