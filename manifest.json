@@ -22,7 +22,8 @@
       "js": [
         "scripts/pauseModal.js",
         "scripts/endModal.js",
-        "scripts/baekjoon/timer.js"
+        "scripts/baekjoon/timer.js",
+        "scripts/timerDesign.js"
       ],
       "css": [
         "assets/css/modal.css",
