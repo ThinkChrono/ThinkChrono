@@ -19,3 +19,12 @@ chrome.storage.local.get("chronoEnable", (result) => {
     $("#onoffbox").prop("checked", result.chronoEnable);
   }
 });
+
+const tokenUsageElement = document.getElementById("token-usage");
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  if (request.action === "geminiTokenUsage") {
+    const { totalTokenCount } = request.tokenUsage;
+
+    tokenUsageElement.textContent = `${totalTokenCount.toLocaleString("ko-KR")} / 1,000,000`;
+  }
+});

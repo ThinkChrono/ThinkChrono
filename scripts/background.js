@@ -21,10 +21,14 @@ chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
         }).then((response) => {
           return response.json()
         }).then((result) => {
-          console.log(result.usageMetadata)
-          console.log(response.usageMetadata.promptTokenCount)
-          console.log(response.usageMetadata.candidatesTokenCount)
-          console.log(response.usageMetadata.totalTokenCount)
+          chrome.runtime.sendMessage({
+            action: "geminiTokenUsage",
+            tokenUsage: {
+              promptTokenCount: result.usageMetadata.promptTokenCount,
+              candidatesTokenCount: result.usageMetadata.candidatesTokenCount,
+              totalTokenCount: result.usageMetadata.totalTokenCount
+            }
+          });
           // console.log(result["candidates"][0]["content"]["parts"][0]["text"])
         });
       });
