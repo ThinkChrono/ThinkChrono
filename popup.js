@@ -21,10 +21,8 @@ chrome.storage.local.get("chronoEnable", (result) => {
 });
 
 const tokenUsageElement = document.getElementById("token-usage");
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  if (request.action === "geminiTokenUsage") {
-    const { totalTokenCount } = request.tokenUsage;
-
-    tokenUsageElement.textContent = `${totalTokenCount.toLocaleString("ko-KR")} / 1,000,000`;
+chrome.storage.local.get("tokenUsage", (result) => {
+  if (result.tokenUsage) {
+    tokenUsageElement.textContent = `${result.tokenUsage.toLocaleString("ko-KR")} / 1,000,000`;
   }
 });

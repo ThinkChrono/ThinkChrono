@@ -1,9 +1,14 @@
 let timerInterval = null;
 let remainingSeconds = 0;
 
-const startTimer = (seconds) => {
+const startTimer = async (seconds) => {
   stopTimer();
+  const isValid = await checkAndSendURL();
+  console.log("timer.js", isValid)
+
   remainingSeconds = seconds;
+  const halfTime = Math.floor(seconds / 2);
+  const quarterTime = Math.floor(seconds / 4);
 
   const updateTimer = () => {
     if (remainingSeconds >= 0) {
@@ -11,9 +16,25 @@ const startTimer = (seconds) => {
       const minutes = String(Math.floor((remainingSeconds % 3600) / 60)).padStart(2, "0");
       const secs = String(remainingSeconds % 60).padStart(2, "0");
       const timerDisplay = document.getElementById("timer-display");
+
       if (timerDisplay) {
         timerDisplay.textContent = `${hours}:${minutes}:${secs}`;
       }
+
+      if (remainingSeconds === halfTime && isValid) {
+        chrome.runtime.sendMessage({
+          action: "sendGeminiRequest",
+          step: "First Request",
+        });
+      }
+
+      if (remainingSeconds === quarterTime && isValid) {
+        chrome.runtime.sendMessage({
+          action: "sendGeminiRequest",
+          step: "Second Request",
+        });
+      }
+
       remainingSeconds--;
     } else {
       stopTimer();

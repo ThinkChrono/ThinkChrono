@@ -1,12 +1,10 @@
 function checkAndSendURL() {
-  const currentDomain = window.location.hostname;
-
-  if (ALLOWED_DOMAINS.includes(currentDomain)) {
+  return new Promise((resolve) => {
     chrome.runtime.sendMessage({
       action: "validateProblemURL",
       url: window.location.href
+    }, (response) => {
+      resolve(response.isValid);
     });
-  }
-}
-
-checkAndSendURL();
+  });
+};
