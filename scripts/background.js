@@ -1,9 +1,31 @@
+importScripts("./allowedDomain.js");
+
+let problemURL = null;
+
+chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
+  if (request.action === "validateProblemURL") {
+    problemURL = request.url;
+    if (ALLOWED_DOMAINS.includes(new URL(problemURL).hostname)) {
+      sendResponse({ isValid: true })
+    } else {
+      sendResponse({ isValid: false });
+    }
+  }
+
+  if (request.action === "sendGeminiRequest") {
+    try {
+      const step = request.step;
+      console.log(`Gemini Request Step: ${step}`);
+
 chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
   if (request.action === "validateProblemURL") {
     try {
       const problemURL = request.url;
       chrome.storage.local.get("Gemini_API_Key", (result) => {
         const apiKey = result.Gemini_API_Key;
+        if (!apiKey) {
+          console.error("Not save Gemini API Key");
+        }
         const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
 
         fetch(GEMINI_API_URL, {
