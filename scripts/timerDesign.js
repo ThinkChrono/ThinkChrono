@@ -109,5 +109,15 @@ const TimerDesign = {
       document.removeEventListener("mousemove", onMouseMove);
       document.removeEventListener("mouseup", onMouseUp);
     };
+  },
+
+  stopButtonDisabled() {
+    const stopButton = document.getElementById("stop-button");
+    stopButton.disabled = true;
+  },
+
+  stopButtonActive() {
+    const stopButton = document.getElementById("stop-button");
+    stopButton.disabled = false;
   }
 };

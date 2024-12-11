@@ -21,25 +21,36 @@ const startTimer = async (seconds) => {
         timerDisplay.textContent = `${hours}:${minutes}:${secs}`;
       }
 
-      if (remainingSeconds === halfTime && isValid) {
-        chrome.runtime.sendMessage({
-          action: "sendGeminiRequest",
-          step: "First Request",
-        });
-      }
+      if (isValid) {
+        if (remainingSeconds === halfTime) {
+          stopTimer();
+          sendGeminiRequest("First Request");
+        }
 
-      if (remainingSeconds === quarterTime && isValid) {
-        chrome.runtime.sendMessage({
-          action: "sendGeminiRequest",
-          step: "Second Request",
-        });
+        if (remainingSeconds === quarterTime) {
+          stopTimer();
+          sendGeminiRequest("Second Request");
+        }
       }
 
       remainingSeconds--;
     } else {
       stopTimer();
       createEndModal();
+      TimerDesign.stopButtonDisabled();
     }
+  };
+
+  const sendGeminiRequest = (step) => {
+    chrome.runtime.sendMessage(
+      { action: "sendGeminiRequest", step },
+      (response) => {
+        if (response && response.success) {
+          console.log("Gemini request sent successfully");
+          createReplyModal(response.reply, response.token);
+        }
+      }
+    );
   };
 
   updateTimer();
@@ -54,11 +65,13 @@ const stopTimer = () => {
     clearInterval(timerInterval);
     timerInterval = null;
   }
+  TimerDesign.stopButtonDisabled();
 };
 
 const resumeTimer = () => {
   if (!timerInterval && remainingSeconds > 0) {
     startTimer(remainingSeconds);
+    TimerDesign.stopButtonActive();
   }
 };
 

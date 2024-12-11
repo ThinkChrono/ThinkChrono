@@ -5,7 +5,9 @@
   "description": "A Chrome extension that helps you enhance coding practice with a smart timer and step-by-step problem-solving guidance.",
   "permissions": [
     "storage",
-    "unlimitedStorage"
+    "unlimitedStorage",
+    "tabs",
+    "activeTab"
   ],
   "action": {
     "default_popup": "popup.html",
@@ -24,6 +26,7 @@
         "scripts/sendDomain.js",
         "scripts/pauseModal.js",
         "scripts/endModal.js",
+        "scripts/replyModal.js",
         "scripts/baekjoon/timer.js",
         "scripts/timerDesign.js"
       ],
