@@ -2,13 +2,17 @@ let timerInterval = null;
 let remainingSeconds = 0;
 
 const startTimer = async (seconds) => {
+  stopTimer();
   TimerDesign.stopButtonActive();
+
   const isValid = await checkAndSendURL();
   console.log("timer.js", isValid)
 
   remainingSeconds = seconds;
-  const halfTime = Math.floor(seconds / 2);
-  const quarterTime = Math.floor(seconds / 4);
+
+  const result = await chrome.storage.local.get("originalSeconds");
+  const halfTime = Math.floor(result.originalSeconds / 2);
+  const quarterTime = Math.floor(result.originalSeconds / 4);
 
   const updateTimer = () => {
     if (remainingSeconds >= 0) {

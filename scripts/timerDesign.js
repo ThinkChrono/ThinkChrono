@@ -32,8 +32,8 @@ const TimerDesign = {
         button.textContent = label;
         button.className = "timer-button";
         button.addEventListener("click", () => {
+          chrome.storage.local.set({ "originalSeconds": minutes });
           startTimer(minutes);
-          chrome.storage.local.set({ "originalSeconds": minutes * 60 });
           buttonsWrapper.style.display = "none";
           timerDisplayContainer.style.display = "block";
         });
