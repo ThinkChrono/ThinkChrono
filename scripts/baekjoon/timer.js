@@ -2,7 +2,7 @@ let timerInterval = null;
 let remainingSeconds = 0;
 
 const startTimer = async (seconds) => {
-  stopTimer();
+  TimerDesign.stopButtonActive();
   const isValid = await checkAndSendURL();
   console.log("timer.js", isValid)
 

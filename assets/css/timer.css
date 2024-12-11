@@ -176,3 +176,9 @@
   background: linear-gradient(to right, #8a8bf7, #a4d3fc);
   color: white;
 }
+
+#stop-button:disabled {
+  background: #d3d3d3;
+  border-color: #b0b0b0;
+  color: #8a8a8a;
+}
