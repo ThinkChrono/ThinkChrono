@@ -13,7 +13,8 @@ const createReplyModal = (reply, token) => {
 
   const modalText = document.createElement("p");
   modalText.id = "reply-text";
-  modalText.textContent = reply || "답변을 불러올 수 없습니다.";
+  // modalText.textContent = reply || "답변을 불러올 수 없습니다.";
+  modalText.innerHTML = reply ? marked.parse(reply) : "답변을 불러올 수 없습니다.";
 
   const modalButtonWrapper = document.createElement("div");
   modalButtonWrapper.id = "modal-button-wrapper";

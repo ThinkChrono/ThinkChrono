@@ -22,6 +22,7 @@
         "https://www.acmicpc.net/problem/*"
       ],
       "js": [
+        "library/marked.min.js",
         "scripts/allowedDomain.js",
         "scripts/sendDomain.js",
         "scripts/pauseModal.js",
