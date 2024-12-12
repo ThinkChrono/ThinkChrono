@@ -6,7 +6,6 @@ const startTimer = async (seconds) => {
   TimerDesign.stopButtonActive();
 
   const isValid = await checkAndSendURL();
-  console.log("timer.js", isValid)
 
   remainingSeconds = seconds;
 
