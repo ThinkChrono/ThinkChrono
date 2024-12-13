@@ -34,3 +34,16 @@ ThinkChrono는 코딩 테스트 준비를 위한 Chrome 확장 프로그램으�
 
 ## 📦 **사용 방법**
 ### 1. **익스텐션 설치**
+- [크롬 웹 스토어](https://chromewebstore.google.com/)에서 "ThinkChrono" 설치
+### 2. **ThinkChrono 활성화**
+![](assets/images/popup.png)
+### 3. **Gemini API Key 입력**
+![](assets/images/home.png)
+[Gemini API Key 발급](https://aistudio.google.com/app/apikey) 사이트를 방문해서 key를 발급받고 입력
+### 4. **타이머 시간 선택**
+![](assets/images/timer.png)<br />
+타이머 "30분" 과 "1시간" 선택(쉬운 난이도는 30분, 어려운 난이도는 1시간 추천)
+![](assets/images/timing.png)<br />
+타이머가 동작되면서 선택 시간의 절반이 될 때마다 총 2번 Gemini가 문제 접근법 제공
+<br />
+예) 30분 선택 - 15분에 문제 접근법 1차 제공, 7분에 2차 제공
