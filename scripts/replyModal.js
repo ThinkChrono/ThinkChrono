@@ -41,3 +41,24 @@ const removeGeminiModal = () => {
     modal.remove();
   }
 };
+
+const showLoadingIndicator = () => {
+  const existingIndicator = document.getElementById('loading-indicator');
+  if (!existingIndicator) {
+    const loadingElement = document.createElement('div');
+    loadingElement.id = 'loading-indicator';
+
+    const loader = document.createElement('div');
+    loader.classList.add('loader');
+
+    loadingElement.appendChild(loader);
+    document.body.appendChild(loadingElement);
+  }
+};
+
+const hideLoadingIndicator = () => {
+  const loadingElement = document.getElementById('loading-indicator');
+  if (loadingElement) {
+    loadingElement.remove();
+  }
+};

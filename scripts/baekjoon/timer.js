@@ -45,11 +45,13 @@ const startTimer = async (seconds) => {
   };
 
   const sendGeminiRequest = (step) => {
+    showLoadingIndicator();
+    playSound();
     chrome.runtime.sendMessage(
       { action: "sendGeminiRequest", step },
       (response) => {
-        if (response && response.success) {
-          console.log("Gemini request sent successfully");
+        if (response && response.prepared) {
+          hideLoadingIndicator();
           createReplyModal(response.reply, response.token);
         }
       }
