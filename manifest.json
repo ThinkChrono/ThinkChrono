@@ -11,7 +11,12 @@
   ],
   "action": {
     "default_popup": "popup.html",
-    "default_icon": "logo.png"
+    "default_icon": "assets/images/logo.png"
+  },
+  "icons": {
+    "16": "assets/images/logo.png",
+    "48": "assets/images/logo.png",
+    "128": "assets/images/logo.png"
   },
   "host_permissions": [
     "https://www.acmicpc.net/*"
