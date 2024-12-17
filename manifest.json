@@ -5,9 +5,7 @@
   "description": "A Chrome extension that helps you enhance coding practice with a smart timer and step-by-step problem-solving guidance.",
   "permissions": [
     "storage",
-    "unlimitedStorage",
-    "tabs",
-    "activeTab"
+    "unlimitedStorage"
   ],
   "action": {
     "default_popup": "popup.html",
