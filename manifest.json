@@ -20,7 +20,8 @@
     "https://www.acmicpc.net/*",
     "https://school.programmers.co.kr/*",
     "https://swexpertacademy.com/*",
-    "https://level.goorm.io/*"
+    "https://level.goorm.io/*",
+    "https://leetcode.com/*"
   ],
   "content_scripts": [
     {
@@ -28,7 +29,8 @@
         "https://www.acmicpc.net/problem/*",
         "https://school.programmers.co.kr/learn/courses/30/lessons/*",
         "https://swexpertacademy.com/main/solvingProblem/solvingProblem.do",
-        "https://level.goorm.io/exam/*"
+        "https://level.goorm.io/exam/*",
+        "https://leetcode.com/problems/*"
       ],
       "js": [
         "library/marked.min.js",
