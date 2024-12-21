@@ -6,6 +6,11 @@ ThinkChrono는 코딩 테스트 준비를 위한 Chrome 확장 프로그램으�
 
 ---
 
+## 크롬 웹스토어에서 만나보세요!
+### [ThinkChrono](https://chromewebstore.google.com/detail/thinkchrono/ekmggciboabfjcniahpdglgdljlihopj?hl=ko)
+
+---
+
 ## ✨ **주요 기능**
 
 ### 1. **타이머 기능**
@@ -47,3 +52,23 @@ ThinkChrono는 코딩 테스트 준비를 위한 Chrome 확장 프로그램으�
 타이머가 동작되면서 선택 시간의 절반이 될 때마다 총 2번 Gemini가 문제 접근법 제공
 <br />
 예) 30분 선택 - 15분에 문제 접근법 1차 제공, 7분에 2차 제공
+
+---
+
+## **지원 플랫폼**
+### 1. **백준 온라인 저지**
+- https://www.acmicpc.net
+### 2. **프로그래머스스**
+- https://school.programmers.co.kr
+### 3. **삼성 SW Expert Academy**
+- https://swexpertacademy.com
+### 4. **구름**
+- https://level.goorm.io
+### 5. **LeetCode**
+- https://leetcode.com
+
+---
+
+## **버그 신고 및 업데이트 요청**
+- **[버그 신고 및 업데이트 요청](https://github.com/ThinkChrono/ThinkChrono/issues)**
+- 이슈 작성시, 버그나 업데이트 요청에 맞게 label을 적용하여 작성해주세요.
