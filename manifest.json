@@ -18,13 +18,15 @@
   },
   "host_permissions": [
     "https://www.acmicpc.net/*",
-    "https://school.programmers.co.kr/*"
+    "https://school.programmers.co.kr/*",
+    "https://swexpertacademy.com/*"
   ],
   "content_scripts": [
     {
       "matches": [
         "https://www.acmicpc.net/problem/*",
-        "https://school.programmers.co.kr/learn/courses/30/lessons/*"
+        "https://school.programmers.co.kr/learn/courses/30/lessons/*",
+        "https://swexpertacademy.com/main/solvingProblem/solvingProblem.do"
       ],
       "js": [
         "library/marked.min.js",
