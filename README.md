@@ -58,7 +58,7 @@ ThinkChrono는 코딩 테스트 준비를 위한 Chrome 확장 프로그램으�
 ## **지원 플랫폼**
 ### 1. **백준 온라인 저지**
 - https://www.acmicpc.net
-### 2. **프로그래머스스**
+### 2. **프로그래머스**
 - https://school.programmers.co.kr
 ### 3. **삼성 SW Expert Academy**
 - https://swexpertacademy.com
